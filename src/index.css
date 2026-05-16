@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    /* FlowMind — Editorial light SaaS, 2026 */
+    --background: 35 22% 96%;        /* #F7F5F2 warm paper */
+    --foreground: 222 47% 11%;       /* #111827 ink */
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Primary = deep lavender (used for active states, text-primary, focus rings) */
+    --primary: 256 60% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 257 87% 78%;
+
+    /* Pastel accents */
+    --pastel-lavender: 257 87% 90%;  /* #DCCFFB */
+    --pastel-mint: 165 38% 86%;      /* #CFE8E1 */
+    --pastel-yellow: 45 86% 80%;     /* #F7E4A0 */
+    --pastel-pink: 337 78% 90%;      /* #F8D2E1 */
+
+    /* Mint as secondary "accent" replacing the old cyan */
+    --accent: 165 38% 86%;
+    --accent-foreground: 170 35% 22%;
+    --accent-glow: 165 50% 78%;
+
+    --secondary: 35 18% 93%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 35 18% 93%;
+    --muted-foreground: 220 9% 46%;  /* #6B7280 */
+
+    --destructive: 0 70% 58%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 158 52% 48%;
+    --warning: 38 92% 58%;
+
+    --border: 30 14% 90%;
+    --input: 30 14% 92%;
+    --ring: 256 60% 60%;
+
+    --radius: 1.75rem;
+
+    /* Gradients — soft + editorial */
+    --gradient-primary: linear-gradient(135deg, hsl(256 70% 65%), hsl(335 75% 75%));
+    --gradient-purple: linear-gradient(135deg, hsl(257 87% 88%), hsl(257 87% 78%));
+    --gradient-cyan: linear-gradient(135deg, hsl(165 50% 88%), hsl(165 50% 78%));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100% / 0.9), hsl(0 0% 100% / 0.7));
+    --gradient-glow: radial-gradient(circle at 50% 0%, hsl(257 87% 90% / 0.5), transparent 70%);
+    --gradient-mesh:
+      radial-gradient(at 12% 8%, hsl(257 87% 92% / 0.55) 0px, transparent 55%),
+      radial-gradient(at 88% 12%, hsl(337 78% 92% / 0.45) 0px, transparent 55%),
+      radial-gradient(at 50% 100%, hsl(165 50% 90% / 0.4) 0px, transparent 55%);
+
+    /* Soft editorial shadows */
+    --shadow-glow-purple: 0 10px 40px -10px hsl(257 87% 70% / 0.25);
+    --shadow-glow-cyan:   0 10px 40px -10px hsl(165 50% 55% / 0.20);
+    --shadow-card:        0 1px 2px hsl(30 20% 60% / 0.06), 0 8px 24px -12px hsl(30 20% 30% / 0.08);
+    --shadow-elevated:    0 4px 8px hsl(30 20% 50% / 0.06), 0 24px 48px -16px hsl(30 20% 30% / 0.14);
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 256 60% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 35 18% 95%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 30 14% 90%;
+    --sidebar-ring: 256 60% 60%;
+  }
+
+  .dark {
+    /* Editorial dark — warm, paper-inverted, not cyber */
+    --background: 30 8% 10%;
+    --foreground: 35 22% 94%;
+
+    --card: 30 8% 13%;
+    --card-foreground: 35 22% 94%;
+
+    --popover: 30 8% 13%;
+    --popover-foreground: 35 22% 94%;
+
+    --primary: 257 87% 78%;
+    --primary-foreground: 222 47% 11%;
+    --primary-glow: 257 87% 82%;
+
+    --pastel-lavender: 257 40% 28%;
+    --pastel-mint: 165 25% 24%;
+    --pastel-yellow: 45 45% 30%;
+    --pastel-pink: 337 35% 28%;
+
+    --accent: 165 30% 70%;
+    --accent-foreground: 30 8% 10%;
+    --accent-glow: 165 40% 75%;
+
+    --secondary: 30 8% 17%;
+    --secondary-foreground: 35 22% 94%;
+
+    --muted: 30 8% 16%;
+    --muted-foreground: 35 10% 65%;
+
+    --destructive: 0 70% 65%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 158 50% 60%;
+    --warning: 38 90% 65%;
+
+    --border: 30 8% 20%;
+    --input: 30 8% 18%;
+    --ring: 257 87% 78%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(257 70% 70%), hsl(335 65% 72%));
+    --gradient-mesh:
+      radial-gradient(at 12% 8%, hsl(257 50% 30% / 0.4) 0px, transparent 55%),
+      radial-gradient(at 88% 12%, hsl(337 40% 28% / 0.35) 0px, transparent 55%),
+      radial-gradient(at 50% 100%, hsl(165 35% 25% / 0.35) 0px, transparent 55%);
+
+    --shadow-card:     0 1px 2px hsl(0 0% 0% / 0.4), 0 8px 24px -12px hsl(0 0% 0% / 0.5);
+    --shadow-elevated: 0 4px 12px hsl(0 0% 0% / 0.45), 0 24px 48px -16px hsl(0 0% 0% / 0.6);
+
+    --sidebar-background: 30 8% 12%;
+    --sidebar-foreground: 35 22% 94%;
+    --sidebar-accent: 30 8% 17%;
+    --sidebar-border: 30 8% 20%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html, body, #root { @apply h-full; }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "ss01", "cv02", "cv03", "cv11";
+    background-image: var(--gradient-mesh);
+    background-attachment: fixed;
+  }
+  h1, h2, h3, .font-display {
+    font-family: 'Fraunces', ui-serif, Georgia, serif;
+    font-feature-settings: "ss01";
+    letter-spacing: -0.015em;
+  }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(var(--primary) / 0.4); }
+}
+
+@layer components {
+  .glass {
+    @apply bg-card/80 backdrop-blur-xl border border-border/70;
+  }
+  .glass-strong {
+    @apply bg-card/95 backdrop-blur-2xl border border-border/70;
+  }
+  .glow-purple { box-shadow: var(--shadow-glow-purple); }
+  .glow-cyan   { box-shadow: var(--shadow-glow-cyan); }
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary via-primary-glow to-accent bg-clip-text text-transparent;
+  }
+  .gradient-border {
+    position: relative;
+  }
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: var(--gradient-primary);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-elevated;
+  }
+  .pastel-lavender { background-color: hsl(var(--pastel-lavender)); }
+  .pastel-mint     { background-color: hsl(var(--pastel-mint)); }
+  .pastel-yellow   { background-color: hsl(var(--pastel-yellow)); }
+  .pastel-pink     { background-color: hsl(var(--pastel-pink)); }
+}
